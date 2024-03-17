@@ -42,6 +42,7 @@ cask "1password-cli"
 cask '1password'
 cask 'iterm2' 
 cask 'google-chrome'
+cask 'arc'
 cask 'vagrant'
 cask 'adguard'
 cask 'font-hack-nerd-font'
