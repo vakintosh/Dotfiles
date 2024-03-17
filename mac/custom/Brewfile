@@ -1,0 +1,62 @@
+print "Install Homebrew Requirements"
+
+tap "Homebrew/bundle"
+tap "Homebrew/cask-versions"
+tap "Homebrew/services"
+
+print "Install Homebrew Packages"
+
+brew "mas"
+brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "npm"
+brew "tmux"
+brew "wget"
+brew "jq"
+brew "go"
+brew "terraform"
+brew "awscli"
+brew "colima" 
+brew "ansible" 
+brew "awk" 
+brew "helm" 
+brew "k9s" 
+brew "chtf"
+brew "btop"
+brew "kubernetes-cli"
+brew "ripgrep" 
+brew "tflint" 
+brew "thefuck" 
+brew "pre-commit"
+brew "autojump"
+brew "terminal-notifier"
+brew "github-keygen"
+brew "zsh-completions"
+
+print "Install Cask Packages"
+
+mas "AdBlock", id: 1402042596
+
+cask "the-unarchiver"
+cask "visual-studio-code"
+cask "1password-cli"
+cask '1password'
+cask 'iterm2' 
+cask 'google-chrome'
+cask 'vagrant'
+
+print "Install Vscode extensions"
+
+vscode "hashicorp.terraform"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "amazonwebservices.aws-toolkit-vscode"
+vscode "redhat.vscode-yaml"
+vscode "ms-azuretools.vscode-docker"
+vscode "github.vscode-pull-request-github"
+vscode "golang.go"
+vscode "visualstudioexptteam.vscodeintellicode"
+vscode "ms-python.python"
+vscode "ms-python.debugpy"
+vscode "vscode-icons-team.vscode-icons"
+vscode "oderwat.indent-rainbow"
