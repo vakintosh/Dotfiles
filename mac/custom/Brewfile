@@ -45,6 +45,7 @@ cask 'google-chrome'
 cask 'vagrant'
 cask 'adguard'
 cask 'font-hack-nerd-font'
+cask 'logi-options-plus'
 
 #'vscode --install-extension'
 vscode "hashicorp.terraform"
