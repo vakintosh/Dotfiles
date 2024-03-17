@@ -1,17 +1,19 @@
-print "Install Homebrew Requirements"
-
+# 'brew tap'
 tap "Homebrew/bundle"
 tap "Homebrew/cask-versions"
 tap "Homebrew/services"
+tap "cask-fonts"
 
-print "Install Homebrew Packages"
-
+# 'brew install'
 brew "mas"
 brew "zsh"
 brew "zsh-autosuggestions"
+brew "zsh-completions"
 brew "zsh-syntax-highlighting"
+brew "zsh-history-substring-search"
 brew "npm"
 brew "tmux"
+brew "tpm"
 brew "wget"
 brew "jq"
 brew "go"
@@ -32,12 +34,8 @@ brew "pre-commit"
 brew "autojump"
 brew "terminal-notifier"
 brew "github-keygen"
-brew "zsh-completions"
 
-print "Install Cask Packages"
-
-mas "AdBlock", id: 1402042596
-
+# 'brew install --cask'
 cask "the-unarchiver"
 cask "visual-studio-code"
 cask "1password-cli"
@@ -45,9 +43,10 @@ cask '1password'
 cask 'iterm2' 
 cask 'google-chrome'
 cask 'vagrant'
+cask 'adguard'
+cask 'font-hack-nerd-font'
 
-print "Install Vscode extensions"
-
+#'vscode --install-extension'
 vscode "hashicorp.terraform"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
 vscode "amazonwebservices.aws-toolkit-vscode"

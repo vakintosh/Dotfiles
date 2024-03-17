@@ -1,0 +1,3 @@
+[submodule "mac/custom/plugins/zsh-notify"]
+	path = mac/custom/plugins/zsh-notify
+	url = https://github.com/marzocchi/zsh-notify

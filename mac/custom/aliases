@@ -1,0 +1,10 @@
+#ALIASES FILES FOR ZSH
+
+alias ll='ls -lath'
+
+alias ssha='eval $(ssh-agent) && ssh-add'
+
+alias cl='clear'
+
+eval $(thefuck --alias fix)
+

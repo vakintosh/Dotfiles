@@ -1,0 +1,11 @@
+# Change Window Name
+<prefix> + ,
+
+# Kill the Current Window
+<prefix> + &
+
+# Create Window
+<prefix> + C
+
+# Install plugins
+<prefix> + I
