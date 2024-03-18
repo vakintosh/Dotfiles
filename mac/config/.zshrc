@@ -28,8 +28,8 @@ source ~/.dotfiles/mac/custom/aliases
 source `npm root -g`/zsh-history-enquirer/zsh-history-enquirer.plugin.zsh
 
 #CHTF
-if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
-	source /usr/local/share/chtf/chtf.sh
+if [[ -f /opt/homebrew/share/chtf/chtf.sh ]]; then
+	source /opt/homebrew/share/chtf/chtf.sh
 fi
 
 #PLUGINS
@@ -38,9 +38,9 @@ source ~/.dotfiles//mac/custom/plugins/terraform/terraform.plugin.zsh
 source ~/.dotfiles//mac/custom/plugins/tmux/tmux.plugin.zsh
 source ~/.dotfiles/mac/custom/plugins/zsh-notify/notify.plugin.zsh
 source ~/.dotfiles/mac/custom/plugins/jovial/jovial.plugin.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
