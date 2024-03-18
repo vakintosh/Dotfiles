@@ -20,3 +20,5 @@ brew bundle --file=~/.dotfiles/mac/custom/Brewfile
 
 # TMUX
 tmux source ~/.tmux.conf
+
+source ~/.zshrc
