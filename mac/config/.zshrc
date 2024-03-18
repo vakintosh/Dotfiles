@@ -25,7 +25,6 @@ source ~/.dotfiles/mac/custom/aliases
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 #zsh-history-enquirer
-curl -#sSL https://github.com/zthxxx/zsh-history-enquirer/raw/master/scripts/installer.zsh | zsh
 source `npm root -g`/zsh-history-enquirer/zsh-history-enquirer.plugin.zsh
 
 #CHTF
