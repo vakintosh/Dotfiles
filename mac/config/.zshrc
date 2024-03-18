@@ -10,12 +10,9 @@ setopt EXTENDED_HISTORY
 source ~/.config/jovial.zsh-theme
 
 # # ZSH-COMPLETIONS
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+autoload -Uz compinit
+compinit
 
-    autoload -Uz compinit
-    compinit
-fi
 
 rm -f ~/.zcompdump; compinit
 chmod go-w '/usr/local/share'
