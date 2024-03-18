@@ -123,7 +123,7 @@ typeset -gA JOVIAL_PALETTE=(
 )
 
 # parts dispaly order from left to right of jovial theme at the first line 
-typeset -ga JOVIAL_PROMPT_ORDER=( host user path dev-env git-info )
+typeset -ga JOVIAL_PROMPT_ORDER=( user path dev-env git-info )
 
 # prompt parts priority from high to low, for `responsive design`.
 # decide whether to still keep dispaly while terminal width is no enough;
