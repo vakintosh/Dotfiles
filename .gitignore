@@ -1,3 +1,4 @@
 mac/custom/command/shell
 mac/custom/Brewfile.lock.json
 .history
+mac/custom/plugins/zsh-notify

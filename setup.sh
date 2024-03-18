@@ -21,6 +21,9 @@ brew bundle --file=~/.dotfiles/mac/custom/Brewfile
 #zsh compinit
 compaudit | xargs chmod g-w
 
+# zsh-notify
+git clone https://github.com/marzocchi/zsh-notify.git ~/.dotfiles/mac/custom/plugins/zsh-notify
+
 # TMUX
 tmux source ~/.tmux.conf
 
