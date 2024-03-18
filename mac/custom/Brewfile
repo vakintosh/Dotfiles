@@ -2,7 +2,7 @@
 tap "Homebrew/bundle"
 tap "Homebrew/cask-versions"
 tap "Homebrew/services"
-tap "cask-fonts"
+tap "Homebrew/cask-fonts"
 
 # 'brew install'
 brew "mas"
