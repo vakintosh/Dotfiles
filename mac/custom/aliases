@@ -2,7 +2,7 @@
 
 alias ll='ls -lath'
 
-alias ssha='eval $(ssh-agent) && ssh-add'
+# alias ssha='eval $(ssh-agent) && ssh-add'
 
 alias cl='clear'
 
