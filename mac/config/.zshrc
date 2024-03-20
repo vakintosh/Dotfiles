@@ -4,6 +4,9 @@
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
+
+[[ -z $HOMEBREW_PREFIX ]] && export HOMEBREW_PREFIX=$(brew --prefix)
+
 setopt EXTENDED_HISTORY
 
 #JOVIAL THEME
@@ -13,7 +16,6 @@ source ~/.config/jovial.zsh-theme
 autoload -Uz compinit
 compinit
 
-
 rm -f ~/.zcompdump; compinit
 chmod go-w '/usr/local/share'
 chmod -R go-w '/usr/local/share/zsh'
@@ -22,14 +24,14 @@ chmod -R go-w '/usr/local/share/zsh'
 source ~/.dotfiles/mac/custom/aliases
 
 #AUTOJUMP
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f $HOMEBREW_PREFIX/etc/profile.d/autojump.sh ] && . $HOMEBREW_PREFIX/etc/profile.d/autojump.sh
 
 #zsh-history-enquirer
 source `npm root -g`/zsh-history-enquirer/zsh-history-enquirer.plugin.zsh
 
 #CHTF
-if [[ -f /opt/homebrew/share/chtf/chtf.sh ]]; then
-	source /opt/homebrew/share/chtf/chtf.sh
+if [[ -f $$HOMEBREW_PREFIX/share/chtf/chtf.sh ]]; then
+	source $$HOMEBREW_PREFIX/share/chtf/chtf.sh
 fi
 
 #PLUGINS
@@ -38,9 +40,9 @@ source ~/.dotfiles//mac/custom/plugins/terraform/terraform.plugin.zsh
 source ~/.dotfiles//mac/custom/plugins/tmux/tmux.plugin.zsh
 source ~/.dotfiles/mac/custom/plugins/zsh-notify/notify.plugin.zsh
 source ~/.dotfiles/mac/custom/plugins/jovial/jovial.plugin.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"

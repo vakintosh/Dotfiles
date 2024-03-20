@@ -2,7 +2,9 @@
 
 ## Description
 
-A brief description of your project.
+Project designed to configure a macOS laptop with DevOps tools and configurations. 
+
+The script ensures the safe execution of its tasks even when run multiple times on the same machine. It intelligently manages the installation, upgrading, or skipping of packages depending on their current status on the system.
 
 ## Features
 
@@ -20,20 +22,3 @@ A brief description of your project.
 cd ~/.dotfiles
 bash ./setup.sh
 ```
-
-## Usage
-
-Explain how to use your project, including any necessary commands or configurations.
-
-## Contributing
-
-Contributions are welcome! Please follow the guidelines outlined in CONTRIBUTING.md.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-- Email: your-email@example.com
-- Twitter: @your-twitter-handle
