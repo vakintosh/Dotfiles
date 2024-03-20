@@ -688,6 +688,10 @@ typeset -gA jovial_affix_lengths=()
             local terraform_prompt_prefix="${JOVIAL_PALETTE[normal]}[${JOVIAL_PALETTE[error]}need "
             local terraform_prompt="Terraform${JOVIAL_PALETTE[normal]}]"
         fi
+
+        if [[ ! -f .pre-commit-config.yaml ]]; then
+            cp ~/.dotfiles/mac/custom/plugins/precomit/tf-pre-commit-config.yaml ./.pre-commit-config.yaml
+        fi
         echo "${terraform_prompt_prefix}${terraform_prompt}"
     fi
 }

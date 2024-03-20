@@ -35,6 +35,16 @@ awk '{print $1}' file.txt # print the first column of the file
 awk 'FNR == 2 {print}' # print the second line of the file
 awk 'FNR == 2 {print $3}' # print the third column of the second line of the file
 
+#IF 
+
+If you want to run a series of commands after the && operator, enclose the commands in curly brackets separated by ; or &&:
+
+[ -f /etc/resolv.conf ] && { echo "$FILE exist."; cp "$FILE" /tmp/; }
+Copy
+In contrast to &&, the statement after the || operator will only be executed if the exit status of the test command is false.
+
+[ -f /etc/resolv.conf ] && echo "$FILE exist." || echo "$FILE does not exist."
+
 # ITERM
 
 imgcat filename
