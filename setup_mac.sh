@@ -6,6 +6,7 @@ fi
 
 # Symlink dotfiles
 echo "Symlink dotfiles"
+ln -s ~/.dotfiles/mac/custom/Brewfile ~/Brewfile
 ln -s ~/.dotfiles/mac/config/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/mac/config/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/mac/config/jovial.zsh-theme ~/.config/jovial.zsh-theme #Install Jovial theme
@@ -17,8 +18,7 @@ if ! command -v brew >/dev/null 2>&1; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-
-brew bundle --file=~/.dotfiles/mac/custom/Brewfile 
+brew bundle --file=~/Brewfile 
 
 #zsh compinit
 compaudit | xargs chmod g-w
