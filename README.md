@@ -1,16 +1,10 @@
-# Project Title
+# DevOps Dotfile
 
 ## Description
 
 Project designed to configure a macOS laptop with DevOps tools and configurations. 
 
 The script ensures the safe execution of its tasks even when run multiple times on the same machine. It intelligently manages the installation, upgrading, or skipping of packages depending on their current status on the system.
-
-## Features
-
-- Feature 1
-- Feature 2
-- Feature 3
 
 ## Installation
 
