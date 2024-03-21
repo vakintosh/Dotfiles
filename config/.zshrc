@@ -21,7 +21,7 @@ chmod go-w '/usr/local/share'
 chmod -R go-w '/usr/local/share/zsh'
 
 #ALIASES
-source ~/.dotfiles/mac/custom/aliases
+source ~/.dotfiles/custom/aliases
 
 #AUTOJUMP
 [ -f $HOMEBREW_PREFIX/etc/profile.d/autojump.sh ] && . $HOMEBREW_PREFIX/etc/profile.d/autojump.sh
@@ -35,18 +35,18 @@ if [[ -f $$HOMEBREW_PREFIX/share/chtf/chtf.sh ]]; then
 fi
 
 # TMUX
-if ! grep -wq "opt/tpm/share/tpm/tpm" $HOME/.tmux.conf ; then
-    cat <<EOF >> $HOME/.tmux.conf
+if ! grep -wq "opt/tpm/share/tpm/tpm" $HOME/.dotfiles/config/.tmux/.tmux.conf ; then
+    cat <<EOF >> $HOME/.dotfiles/config/.tmux/.tmux.conf
 run '$HOMEBREW_PREFIX/opt/tpm/share/tpm/tpm'
 EOF
 fi
 
 #PLUGINS
-source ~/.dotfiles//mac/custom/plugins/git/git.plugin.zsh
-source ~/.dotfiles//mac/custom/plugins/terraform/terraform.plugin.zsh
-source ~/.dotfiles//mac/custom/plugins/tmux/tmux.plugin.zsh
-source ~/.dotfiles/mac/custom/plugins/zsh-notify/notify.plugin.zsh
-source ~/.dotfiles/mac/custom/plugins/jovial/jovial.plugin.zsh
+source ~/.dotfiles/custom/zsh/git/git.plugin.zsh
+source ~/.dotfiles/custom/zsh/terraform/terraform.plugin.zsh
+source ~/.dotfiles/custom/zsh/tmux/tmux.plugin.zsh
+source ~/.dotfiles/custom/zsh/zsh-notify/notify.plugin.zsh
+source ~/.dotfiles/custom/zsh/jovial/jovial.plugin.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh

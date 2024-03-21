@@ -6,11 +6,13 @@ fi
 
 # Symlink dotfiles
 echo "Symlink dotfiles"
-ln -sf ~/.dotfiles/mac/custom/Brewfile ~/Brewfile
-ln -sf ~/.dotfiles/mac/config/.tmux.conf ~/.tmux.conf
-ln -sf ~/.dotfiles/mac/config/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/mac/config/jovial.zsh-theme ~/.config/jovial.zsh-theme #Install Jovial theme
-ln -sf ~/.dotfiles/mac/config/.vimrc ~/.vimrc
+ln -sf ~/.dotfiles/custom/Brewfile ~/Brewfile
+ln -sf ~/.dotfiles/config/.tmux/.tmux.conf ~/.tmux.conf
+ln -sf ~/.dotfiles/config/.zshrc ~/.zshrc
+ln -sf ~/.dotfiles/config/jovial.zsh-theme ~/.config/jovial.zsh-theme #Install Jovial theme
+# ln -sf ~/.dotfiles/config/.vim ~/.vim
+ln -sf ~/.dotfiles/config/.vim/.vimrc ~/.vimrc
+
 
 # # Install Homebrew and packages
 if [[! command -v brew >/dev/null 2>&1 ]]; then
@@ -22,7 +24,7 @@ if [[! command -v brew >/dev/null 2>&1 ]]; then
     [[ -z $HOMEBREW_PREFIX ]] && export HOMEBREW_PREFIX=$(brew --prefix)
     
     # Check if path already exist in z.profile
-    if grep -wq "bin/brew shellenv)" $HOME/.zprofile ; then
+    if ! grep -wq "bin/brew shellenv)" $HOME/.zprofile ; then
         echo "Homebrew already in profile" 
     else
         (echo; echo 'eval "$('$HOMEBREW_PREFIX'/bin/brew shellenv)"') >> $HOME/.zprofile
@@ -37,7 +39,7 @@ brew bundle --file=~/Brewfile
 compaudit | xargs chmod g-w
 
 # zsh-notify
-git clone https://github.com/marzocchi/zsh-notify.git ~/.dotfiles/mac/custom/plugins/zsh-notify
+git clone https://github.com/marzocchi/zsh-notify.git ~/.dotfiles/custom/zsh/zsh-notify
 
 # zsh-history-enquirer
 if [ ! -d `npm root -g`/zsh-history-enquirer ]; then

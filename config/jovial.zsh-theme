@@ -88,16 +88,16 @@ typeset -gA JOVIAL_PALETTE=(
     root '%B%F{203}'
 
     # current work dir path
-    path '%B%F{228}%}'
+    path '%B%F{180}%}'
 
     # git status info (dirty or clean / rebase / merge / cherry-pick)
-    git '%F{159}'
+    git '%F{153}'
 
     # virtual env activate prompt for python
-    venv '%F{159}'
+    venv '%F{153}'
 
     # workspace for terraform
-    workspace '%F{93}'
+    workspace '%F{103}'
 
     # current time when prompt render, pin at end-of-line
     time '%F{254}'
@@ -113,7 +113,7 @@ typeset -gA JOVIAL_PALETTE=(
     conj. '%F{102}'
 
     # shell typing area pointer
-    typing '%F{252}'
+    typing '%B%F{252}'
 
     # for other common case text color
     normal '%F{252}'
@@ -634,7 +634,7 @@ typeset -gA jovial_affix_lengths=()
             else
                 return 1
             fi
-            local go_prompt="%F{086}Golang ${go_version}"
+            local go_prompt="%F{080}Golang ${go_version}"
         else
             local go_prompt_prefix="${JOVIAL_PALETTE[normal]}[${JOVIAL_PALETTE[error]}need "
             local go_prompt="Golang${JOVIAL_PALETTE[normal]}]"
@@ -683,7 +683,7 @@ typeset -gA jovial_affix_lengths=()
     if @jov.rev-parse-find ".terraform"; then
         if @jov.iscommand terraform; then
             local terraform_prompt_prefix="${JOVIAL_PALETTE[conj.]}using " 
-            local terraform_prompt="%F{93}`\terraform -version 2>&1`"
+            local terraform_prompt="%F{103}`\terraform -version 2>&1`"
         else
             local terraform_prompt_prefix="${JOVIAL_PALETTE[normal]}[${JOVIAL_PALETTE[error]}need "
             local terraform_prompt="Terraform${JOVIAL_PALETTE[normal]}]"

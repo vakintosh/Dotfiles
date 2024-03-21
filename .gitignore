@@ -1,4 +1,4 @@
-mac/custom/command/shell
-mac/custom/Brewfile.lock.json
+custom/command/shell
+custom/Brewfile.lock.json
 .history
-mac/custom/plugins/zsh-notify
+custom/zsh/zsh-notify
