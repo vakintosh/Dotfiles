@@ -382,12 +382,14 @@ typeset -g jovial_is_git_dirty=false
     if [[ -n ${project_root_dir} ]]; then
         jovial_rev_git_dir="${project_root_dir}/.git"
 
-# https://linuxhandbook.com/merge-files/
-# https://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash
-    if [[ ! -f .pre-commit-config.yaml ]]; then
-        cp ~/.dotfiles/config/git/ignore-template ./.gitignore
-        cp ~/.dotfiles/config/git/precommit/base-pre-commit-config.yaml ./.pre-commit-config.yaml
-    fi
+    # # https://linuxhandbook.com/merge-files/
+    # # https://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash
+    #     if [[ ! -f .pre-commit-config.yaml ]]; then
+    #         cp ~/.dotfiles/config/git/precommit/base-pre-commit-config.yaml ./.pre-commit-config.yaml
+    #     fi
+    #     if [[ ! -f .gitignore ]]; then
+    #         cp ~/.dotfiles/config/git/ignore-template ./.gitignore
+    #     fi
 
     else
         jovial_rev_git_dir=""
@@ -566,7 +568,6 @@ typeset -gA jovial_affix_lengths=()
 
     eval ${store_var}=${(q)result}
 }
-
 
 # pin the last command execute elapsed and exit code at previous line end
 @jov.pin-execute-info() {
