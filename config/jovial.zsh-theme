@@ -22,7 +22,7 @@ zmodload zsh/datetime
 zmodload zsh/zpty
 zmodload zsh/zle
 
-# expand and execute the PROMPT variable 
+# expand and execute the PROMPT variable
 # https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
 setopt prompt_subst
 
@@ -70,7 +70,7 @@ typeset -gA JOVIAL_SYMBOL=(
 # use `sheet:color` plugin function to see color table
 # https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Visual-effects
 # format quickref:
-#   
+#
 #   %F{xxx}         => foreground color (text color)
 #   %K{xxx}         => background color (color-block)
 #   %B              => bold
@@ -122,7 +122,7 @@ typeset -gA JOVIAL_PALETTE=(
     error '%F{203}'
 )
 
-# parts dispaly order from left to right of jovial theme at the first line 
+# parts dispaly order from left to right of jovial theme at the first line
 typeset -ga JOVIAL_PROMPT_ORDER=( user path dev-env git-info )
 
 # prompt parts priority from high to low, for `responsive design`.
@@ -282,7 +282,7 @@ typeset -gA jovial_async_callbacks=()
 #
 # `handler-func`  cannot handle with not any param
 # `callback-func` can only receive one param: <output-data>
-# 
+#
 # https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html
 @jov.async() {
     local job_name=$1
@@ -299,7 +299,7 @@ typeset -gA jovial_async_callbacks=()
 
     # async run as non-blocking output subprocess in zpty
     zpty -b ${job_name} @jov.zpty-worker ${handler}
-    # REPLY a file-descriptor which was opened by the lost zpty job 
+    # REPLY a file-descriptor which was opened by the lost zpty job
     local -i fd=${REPLY}
 
     jovial_async_jobs[${job_name}]=${fd}
@@ -381,6 +381,14 @@ typeset -g jovial_is_git_dirty=false
 
     if [[ -n ${project_root_dir} ]]; then
         jovial_rev_git_dir="${project_root_dir}/.git"
+
+# https://linuxhandbook.com/merge-files/
+# https://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash
+    if [[ ! -f .pre-commit-config.yaml ]]; then
+        cp ~/.dotfiles/config/git/ignore-template ./.gitignore
+        cp ~/.dotfiles/config/git/precommit/base-pre-commit-config.yaml ./.pre-commit-config.yaml
+    fi
+
     else
         jovial_rev_git_dir=""
     fi
@@ -589,7 +597,7 @@ typeset -gA jovial_affix_lengths=()
         jovial_parts[exit-code]="${sgr_reset}${JOVIAL_AFFIXES[exit-code.prefix]}${JOVIAL_PALETTE[exit.code]}${exit_code}${JOVIAL_AFFIXES[exit-code.suffix]}"
         pin_length+=$(( ${jovial_affix_lengths[exit-code]} + ${#exit_code} ))
     fi
-    
+
     if (( pin_length > 0 )); then
         local pin_message="${jovial_parts[exec-elapsed]}${jovial_parts[exit-code]}"
         @jov.align-previous-right "${pin_message}" ${pin_length} pin_message
@@ -682,7 +690,7 @@ typeset -gA jovial_affix_lengths=()
 @jov.prompt-terraform-version()  {
     if @jov.rev-parse-find ".terraform"; then
         if @jov.iscommand terraform; then
-            local terraform_prompt_prefix="${JOVIAL_PALETTE[conj.]}using " 
+            local terraform_prompt_prefix="${JOVIAL_PALETTE[conj.]}using "
             local terraform_prompt="%F{103}`\terraform -version 2>&1`"
         else
             local terraform_prompt_prefix="${JOVIAL_PALETTE[normal]}[${JOVIAL_PALETTE[error]}need "
@@ -690,7 +698,7 @@ typeset -gA jovial_affix_lengths=()
         fi
 
         if [[ ! -f .pre-commit-config.yaml ]]; then
-            cp ~/.dotfiles/mac/custom/plugins/precomit/tf-pre-commit-config.yaml ./.pre-commit-config.yaml
+            cp ~/.dotfiles/config/git/precommit/tf-pre-commit-config.yaml ./.pre-commit-config.yaml
         fi
         echo "${terraform_prompt_prefix}${terraform_prompt}"
     fi
@@ -708,7 +716,7 @@ typeset -ga JOVIAL_DEV_ENV_DETECT_FUNCS=(
 @jov.dev-env-detect() {
     for segment_func in ${JOVIAL_DEV_ENV_DETECT_FUNCS[@]}; do
         local segment=`${segment_func}`
-        if [[ -n ${segment} ]]; then 
+        if [[ -n ${segment} ]]; then
             echo "${segment}"
             break
         fi
@@ -853,7 +861,7 @@ typeset -ga JOVIAL_DEV_ENV_DETECT_FUNCS=(
 
 # use `exec` to parallel run commands and capture stdout into file descriptor
 #   @jov.set-git-info [true|false]
-# first param is whether git is dirty or not (`true` or `false`), 
+# first param is whether git is dirty or not (`true` or `false`),
 # if first param is not set, will try to read by exec
 @jov.set-git-info() {
     local is_dirty="$1"
@@ -879,7 +887,7 @@ typeset -ga JOVIAL_DEV_ENV_DETECT_FUNCS=(
     fi
 
     local git_state='' state_color='' git_dirty_status=''
- 
+
     if [[ ${is_dirty} == true ]]; then
         git_state='dirty'
         state_color='error'
@@ -964,7 +972,7 @@ add-zsh-hook preexec @jov.exec-timestamp
 
     if (( jovial_prompt_run_count == 1 )); then
         @jov.init-affix
-        
+
         local -i dev_env_fd
         exec {dev_env_fd}<> <(@jov.dev-env-detect)
         @jov.sync-git-check
@@ -1013,7 +1021,7 @@ add-zsh-hook precmd @jov.prompt-prepare
         if (( total_length + part_length + 1 > COLUMNS )) && [[ ${prompt_is_emtpy} == false ]] ; then
             break
         fi
-        
+
         prompt_is_emtpy=false
 
         total_length+=${part_length}
